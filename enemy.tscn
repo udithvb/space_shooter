@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbkt6pyrabolv"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_38hh2"]
+[ext_resource type="Texture2D" uid="uid://dmnkxgq4okoti" path="res://kenney_space-shooter-redux/PNG/Enemies/enemyBlack4.png" id="2_q4ej1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8hob"]
+radius = 46.6905
+
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+position = Vector2(266, 60)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_38hh2")
+metadata/_edit_group_ = true
+
+[node name="ShipGraphic" type="Sprite2D" parent="."]
+texture = ExtResource("2_q4ej1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_u8hob")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
